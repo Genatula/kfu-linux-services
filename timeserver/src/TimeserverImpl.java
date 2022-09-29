@@ -8,12 +8,12 @@ public class TimeserverImpl implements Timeserver {
     private ServerSocket serverSocket;
     private InetSocketAddress socketAddress;
 
-    private static final int port = 1303;
+    private static final int PORT = 1303;
 
     public TimeserverImpl() {
         try {
-            this.socketAddress = new InetSocketAddress(InetAddress.getLocalHost(), port);
-            this.serverSocket = new ServerSocket(port);
+            this.socketAddress = new InetSocketAddress(InetAddress.getLocalHost(), PORT);
+            this.serverSocket = new ServerSocket(PORT);
         } catch (IOException e) {
             System.err.println("Couldn't create the server");
             System.exit(-1);
