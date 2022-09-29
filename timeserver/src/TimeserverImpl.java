@@ -6,13 +6,11 @@ import java.net.Socket;
 
 public class TimeserverImpl implements Timeserver {
     private ServerSocket serverSocket;
-    private InetSocketAddress socketAddress;
 
     private static final int PORT = 1303;
 
     public TimeserverImpl() {
         try {
-            this.socketAddress = new InetSocketAddress(InetAddress.getLocalHost(), PORT);
             this.serverSocket = new ServerSocket(PORT);
         } catch (IOException e) {
             System.err.println("Couldn't create the server");
@@ -22,9 +20,8 @@ public class TimeserverImpl implements Timeserver {
 
     @Override
     public void start() {
-        if (serverSocket != null && socketAddress != null) {
+        if (serverSocket != null) {
             try {
-                this.serverSocket.bind(socketAddress);
                 System.out.println("The server has started successfully!");
                 while (true) {
                     Socket socket = serverSocket.accept();

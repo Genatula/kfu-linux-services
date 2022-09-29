@@ -30,7 +30,7 @@ public class TimeclientImpl implements Timeclient {
                     StringBuilder stringBuilder = new StringBuilder();
                     int character = reader.read();
                     while (character != -1) {
-                        stringBuilder.append(character);
+                        stringBuilder.append((char) character);
                         character = reader.read();
                     }
                     System.out.println(stringBuilder);
